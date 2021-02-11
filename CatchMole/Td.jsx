@@ -30,7 +30,7 @@ const Td = ({rowIndex, cellIndex}) => {
     } else if (tableData[rowIndex][cellIndex] === CODE.MOLE){
       timeOut =  setTimeout( ()=> {
         dispatch({ type: RANDOM_CHANGE, row: rowIndex, cell: cellIndex})
-      }, Math.random()*1000);
+      }, Math.random()*1000+300);
     } else {
       return;
     }

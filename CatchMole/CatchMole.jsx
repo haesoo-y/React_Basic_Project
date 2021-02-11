@@ -4,9 +4,9 @@ import Form from './Form';
 
 const getSize = (level) => {
   switch (level){
-    case 'Easy' : return 5;
-    case 'Normal' : return 10;
-    case 'Hard' : return 15;
+    case 'Easy' : return 3;
+    case 'Normal' : return 5;
+    case 'Hard' : return 10;
   };
 }
 const getTable = (level) => {
