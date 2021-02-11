@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, memo, useMemo } from 'react';
-import { TableContext, CODE, RANDOM_CHANGE} from './CatchMole';
+import React, { useContext, useEffect, useCallback, useMemo } from 'react';
+import { TableContext, CODE, RANDOM_CHANGE, CLOSE_CELL} from './CatchMole';
 
 const getTdClass = (code) => {
   switch(code) {
@@ -39,9 +39,22 @@ const Td = ({rowIndex, cellIndex}) => {
     }
   },[tableData[rowIndex][cellIndex]])
 
+  const onClickTd = useCallback( (e) => {
+    e.preventDefault();
+    switch (tableData[rowIndex][cellIndex]){
+      case CODE.MOLE :
+        dispatch({ type: CLOSE_CELL, row: rowIndex, cell: cellIndex});
+        return;
+      case CODE.NORMAL:
+      case CODE.CLOSED:
+      default:
+        return;
+    }
+  })
+
 
   return useMemo(()=>(
-    <td className={getTdClass(tableData[rowIndex][cellIndex])}></td>
+    <td className={getTdClass(tableData[rowIndex][cellIndex])} onClick={onClickTd}></td>
     
   ),[tableData[rowIndex][cellIndex]]);
 };

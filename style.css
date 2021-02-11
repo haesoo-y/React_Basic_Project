@@ -7,19 +7,25 @@
 
 td {
   border: 1px solid black;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   text-align: center;
 }
 
 .normal {
-  background-color: black;
+  background-color: rgb(250, 250, 250);
 }
 
 .mole {
-  background-color: red;
+  background-image: url(./CatchMole/moleimg.png);
+  background-size: 130%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .closed {
-  background-color: brown;
+  background-image: url(./CatchMole/moledeadimg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

@@ -37,6 +37,7 @@ export const TableContext = createContext( {
 // ***** 이벤트 이름 정의 *****
 export const START_GAME = 'START_GAME';
 export const RANDOM_CHANGE = 'RANDOM_CHANGE';
+export const CLOSE_CELL = 'CLOSE_CELL';
 
 // ***** 리듀서로 이벤트 처리 *****
 const reducer = (state, action) => {
@@ -56,6 +57,15 @@ const reducer = (state, action) => {
       } else if (tableData[action.row][action.cell]=== CODE.MOLE){
         tableData[action.row][action.cell] = CODE.NORMAL;
       }
+      return {
+        ...state,
+        tableData,
+      }
+    }
+    case CLOSE_CELL :{
+      const tableData = [...state.tableData];
+      tableData[action.row] = [...state.tableData[action.row]];
+      tableData[action.row][action.cell] = CODE.CLOSED;
       return {
         ...state,
         tableData,
