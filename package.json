@@ -1,0 +1,36 @@
+{
+  "name": "react_basic_project",
+  "version": "1.0.0",
+  "description": "리액트 기능을 연습하기위한 미니게임 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --env development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haesoo9410/React_Basic_Project.git"
+  },
+  "author": "harry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haesoo9410/React_Basic_Project/issues"
+  },
+  "homepage": "https://github.com/haesoo9410/React_Basic_Project#readme",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "babel-loader": "^8.2.2",
+    "react-refresh": "^0.9.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
