@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import CatchMole from './CatchMole/CatchMole'
+import LuckySeven from './LuckySeven/LuckySeven'
 
-ReactDom.render(<CatchMole />, document.querySelector('#root'));
+ReactDom.render(<LuckySeven />, document.querySelector('#root'));
