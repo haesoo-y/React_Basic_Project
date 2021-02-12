@@ -1,20 +1,20 @@
 import React, { useContext, useState, useCallback } from 'react';
-import { START_GAME, TableContext } from './CatchMole';
+import { START_GAME, CHANGE_LEVEL, TableContext } from './CatchMole';
 
 
 const Form = () => {
-  const [level, setLevel] = useState('Easy');
-  const {dispatch} = useContext(TableContext);
+  // const [level, setLevel] = useState('Easy');
+  const {level, dispatch} = useContext(TableContext);
 
   const onChangeLevel = useCallback( (e) => {
     console.log(e.target.value);
     
-    setLevel(e.target.value);
+    dispatch({ type: CHANGE_LEVEL, level: e.target.value})
 
   },[]);
 
   const onClickBtn = useCallback( (e) => {
-    dispatch({type: START_GAME, level})
+    dispatch({type: START_GAME})
   },[level])
 
   return (

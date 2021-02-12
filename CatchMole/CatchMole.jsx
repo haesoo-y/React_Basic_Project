@@ -38,16 +38,21 @@ export const TableContext = createContext( {
 export const START_GAME = 'START_GAME';
 export const RANDOM_CHANGE = 'RANDOM_CHANGE';
 export const CLOSE_CELL = 'CLOSE_CELL';
+export const RUN_TIMER = 'RUN_TIMER';
+export const CHANGE_LEVEL = 'CHANGE_LEVEL';
 
 // ***** 리듀서로 이벤트 처리 *****
 const reducer = (state, action) => {
   switch (action.type) {
     case START_GAME :
+      console.log('START_GAME level : ' + state.level)
       return {
         ...state,
-        tableData: getTable(action.level),
+        tableData: getTable(state.level),
         halted: false,
         timer:0,
+        catchCount:1,
+        result:'',
       }
     case RANDOM_CHANGE :{
       const tableData = [...state.tableData];
@@ -66,9 +71,38 @@ const reducer = (state, action) => {
       const tableData = [...state.tableData];
       tableData[action.row] = [...state.tableData[action.row]];
       tableData[action.row][action.cell] = CODE.CLOSED;
+      
+      // ***** 승리조건 판단 ***** 
+      console.log(state.level);
+      let allCount = getSize(state.level)**2;
+      console.log('allCount : ' + allCount);
+      console.log('catchCount : ' + state.catchCount)
+      let halted = false;
+      let result = '';
+      if (state.catchCount === allCount){
+        halted = true;
+        result = `성공 : ${state.timer}초 `;
+      }
+
       return {
         ...state,
         tableData,
+        halted,
+        result,
+        catchCount: state.catchCount + 1,
+      }
+    }
+    case CHANGE_LEVEL : {
+      let level = action.level
+      return {
+        ...state,
+        level,
+      }
+    }
+    case RUN_TIMER : {
+      return {
+        ...state,
+        timer: state.timer + 1,
       }
     }
       
@@ -83,7 +117,7 @@ const initialState = {
   timer: 0,
   result: '',
   halted: true,
-  catchCount:0,
+  catchCount:1,
 }
 // ***** 컴포넌트 정의 *****
 const CatchMole = () => {
@@ -93,11 +127,26 @@ const CatchMole = () => {
     {tableData, halted, dispatch }
   ), [tableData])
 
+  // ***** 타이머 *****
+  useEffect( ()=> {
+    let setTimer;
+    if (halted === false) {
+      setTimer = setInterval( () => {
+        dispatch({ type: RUN_TIMER });
+      }, 1000);
+    }
+    return () => {
+      clearInterval(setTimer);
+    }
+  },[halted])
+
 // ***** 렌더링 작업 *****
   return (
     <TableContext.Provider value={value}>
       <Form />
       <Table />
+      {halted === true ? null : <div>{`⏰ ${timer} 초`}</div>}
+      {result && <div>{`🎊 ${result} 🎊`}</div>}
     </TableContext.Provider>
   );
 };

@@ -20,6 +20,7 @@ const Td = ({rowIndex, cellIndex}) => {
   // const timeOut = useRef();
   const { tableData, dispatch } = useContext(TableContext);
 
+  // ***** 랜덤하게 두더지 생성 *****  
   useEffect( () => {
     let timeOut;
     if (tableData[rowIndex][cellIndex] === CODE.NORMAL){
@@ -39,6 +40,7 @@ const Td = ({rowIndex, cellIndex}) => {
     }
   },[tableData[rowIndex][cellIndex]])
 
+  // ***** 클릭 이벤트 *****
   const onClickTd = useCallback( (e) => {
     e.preventDefault();
     switch (tableData[rowIndex][cellIndex]){
@@ -52,7 +54,7 @@ const Td = ({rowIndex, cellIndex}) => {
     }
   })
 
-
+// ***** 랜더링 *****
   return useMemo(()=>(
     <td className={getTdClass(tableData[rowIndex][cellIndex])} onClick={onClickTd}></td>
     
