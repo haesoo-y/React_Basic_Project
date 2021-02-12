@@ -1,10 +1,25 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
+import { CODE, getCode, changeIcon } from './LuckySeven'
 
-const SlotMachine = memo( () => {
+const SlotMachine = memo( ({halted}) => {
+  const [code, setCode] = useState(getCode())
+  // const [icon, setIcon] = useState(CODE[getIcon()]);
+  const timeInterval = useRef();
 
+  useEffect( ()=> {
+    console.log('useEffect')
+    timeInterval.current = setInterval( ()=>{
+      let slotcode = code;
+      setCode(changeIcon(slotcode));
+      console.log(code)
+    },500)
 
+    return () => {
+      clearInterval(timeInterval.current);
+    }
+  },[code])
   return (
-    <div>랜덤숫자</div>
+    <div className = "machine-cell">{CODE[code]}</div>
   )
 });
 
