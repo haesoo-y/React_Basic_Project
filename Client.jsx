@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import LuckySeven from './LuckySeven/LuckySeven'
+import Games from './Games'
 
-ReactDom.render(<LuckySeven />, document.querySelector('#root'));
+ReactDom.render(<Games />, document.querySelector('#root'));
