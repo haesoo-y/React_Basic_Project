@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import SlotMachine from './SlotMachine';
 
 // ***** 코드 값 정의 *****
@@ -29,22 +29,41 @@ export const changeIcon = (code) => {
 
 // ***** 컴포넌트 *****
 const LuckySeven = () => {
-  const [word, setWord] = useState('Hello, Hooks');
   const [halted, setHalted] = useState(true);
+  const [result, setResult] = useState('');
+  const sevenCount = useRef(0);
+  const machineCount = useRef(0);
+
+  // ***** 숫자 7의 갯수와 재시작 횟수를 자식으로부터 받아오는 함수 *****
+  const getCount = (success, restart) => {
+    let successCount = sevenCount.current + success;
+    let restartCount = machineCount.current + restart;
+    // console.log(`${restartCount} = ${machineCount.current} + ${restart}`)
+    sevenCount.current = successCount;
+    machineCount.current = restartCount;
+    console.log(restartCount);
+    if(successCount === 3){
+      console.log(`restartCount : ${restartCount} 로 승리`);
+      setResult(`${machineCount.current}회 재시도로 성공하셨습니다.`)
+      setHalted(true);
+    }
+  }
   
   const onClickRedo = useCallback( ()=> {
     setHalted(false);
-    console.log(halted);
+    setResult('');
+    sevenCount.current = 0;
+    machineCount.current = 0;
   },[halted])
 
 
   return (
     <>
-      <SlotMachine halted={halted}/>
-      <SlotMachine halted={halted}/>
-      <SlotMachine halted={halted}/>
-      <div>{word}</div>
+      <SlotMachine halted={halted} getCount={getCount}/>
+      <SlotMachine halted={halted} getCount={getCount}/>
+      <SlotMachine halted={halted} getCount={getCount}/>
       <button onClick={onClickRedo}>시작</button>
+      <div>{result}</div>
     </>
   );
 };
