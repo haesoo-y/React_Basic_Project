@@ -67,11 +67,13 @@ li {
 
 /* 메인페이지 */
 .link-buttons {
+  display: flex;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
 .link-button {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 5px;
   padding: 0 5px;
   height: 40px;
@@ -165,7 +167,7 @@ td {
 
 /* 럭키세븐 */
 .machine {
-  margin: 30px 0;
+  margin: 50px 0;
   display: flex;
   flex-direction: column;
 }
@@ -185,7 +187,6 @@ td {
   border: 3px solid white;
   background-color:rgb(10, 10, 10);
   text-align: center;
-  line-height: 40px;
 }
 .cell-top-bottom {
 
@@ -228,4 +229,102 @@ td {
   font-family: 'Do Hyeon', sans-serif;
   font-size: 20px;
   letter-spacing: 0.1em;
+}
+
+
+/* 모바일 반응형 대응 */
+@media screen and (max-width:658px){
+  .every {
+    margin-top: 10px;
+  }
+  
+  .start-button {
+    font-size:18px;
+  }
+
+  /* 메인페이지 */
+  .link-buttons {
+    margin-bottom: 30px;
+  }
+  
+  .link-button{
+    overflow: hidden;
+    width: 72px;
+    margin: 2px;
+    height: 30px;
+    line-height: 25px;
+    font-size: 10px;
+  }
+
+  .main-text{
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  /* 두더지잡기 */
+  .catchmole{
+    margin: 20px 0;
+  }
+
+  .level-select{
+    width: 180px;
+    height: 25px;
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+  .level-select button{
+    font-size: 20px;
+  }
+
+  table {
+    margin: 10px 0;
+  }
+
+  td {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* 럭키세븐 */
+
+  .machine-cell {
+    width: 90px;
+    height: 130px;
+    margin: 5px;
+  }
+  .cell-top-bottom{
+    height: 35px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .cell-center{
+    height: 60px;
+    line-height: 45px;
+    font-size: 36px;
+  }
+
+  /* 메뉴얼페이지 */
+  .manuel-page{
+    margin: 10px;
+  }
+  .manuel-page h1{
+    margin: 5px 0 30px;
+    font-size: 25px;
+  }
+  .manuel-page ol li{
+    margin: 30px 0;
+    font-size: 18px;
+  }
+  .manuel-page ol li ul li{
+    margin: 5px;
+    font-size: 17px;
+  }
+
+
+
+
+
+
+
 }
