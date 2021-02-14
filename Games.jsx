@@ -10,7 +10,7 @@ const Games = () => {
 
     <HashRouter>
       <div className="link-buttons">
-        <Link className="link-button" to="/">Main</Link>        
+        <Link className="link-button" to="/">MAIN</Link>        
         <Link className="link-button" to="/game/luckyseven">LUCKY SEVEN</Link>        
         <Link className="link-button" to="/game/catchmole">CATCH MOLE</Link>        
         <Link className="link-button" to="/Manual">MANUAL</Link>
