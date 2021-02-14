@@ -19,13 +19,13 @@ const Form = () => {
 
   return (
     <>
-      <label for="Level">난이도를 선택하세요</label>
+      <label for="Level">LEVEL</label>
       <select id="Level" value={level} onChange = {onChangeLevel} >
         <option value = 'Easy'>Easy</option>
         <option value = 'Normal'>Normal</option>
         <option value = 'Hard'>Hard</option>
       </select>
-      <button onClick={onClickBtn}>시작</button>
+      <button onClick={onClickBtn}>START</button>
     </>
   );
 };

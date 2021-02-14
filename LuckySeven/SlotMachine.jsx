@@ -66,9 +66,9 @@ const SlotMachine = memo( ({halted, getCount}) => {
 
   return (
     <div className = "machine-cell">
-      <div>{CODE[getTopBottomCode(code+1)]}</div>
-      <div onClick={onClickMachine}>{CODE[code]}</div>
-      <div>{CODE[getTopBottomCode(code-1)]}</div>
+      <div className = "cell-top-bottom">{CODE[getTopBottomCode(code+1)]}</div>
+      <div className = "cell-center" onClick={onClickMachine}>{CODE[code]}</div>
+      <div className = "cell-top-bottom">{CODE[getTopBottomCode(code-1)]}</div>
     </div>
     
   )

@@ -44,7 +44,7 @@ const LuckySeven = () => {
     console.log(restartCount);
     if(successCount === 3){
       console.log(`restartCount : ${restartCount} 로 승리`);
-      setResult(`${machineCount.current}회 재시도로 성공하셨습니다.`)
+      setResult(`RETRY : ${machineCount.current}`)
       setHalted(true);
     }
   }
@@ -58,13 +58,15 @@ const LuckySeven = () => {
 
 
   return (
-    <>
-      <SlotMachine halted={halted} getCount={getCount}/>
-      <SlotMachine halted={halted} getCount={getCount}/>
-      <SlotMachine halted={halted} getCount={getCount}/>
-      <button onClick={onClickRedo}>시작</button>
-      <div>{result}</div>
-    </>
+    <div className="machine">
+      <div className="machine-cells">
+        <SlotMachine halted={halted} getCount={getCount}/>
+        <SlotMachine halted={halted} getCount={getCount}/>
+        <SlotMachine halted={halted} getCount={getCount}/>
+      </div>     
+      <button className="machine-button" onClick={onClickRedo}>START</button>
+      {result && <div>SUCCESS <br/>{result}</div>}
+    </div>
   );
 };
 
