@@ -66,6 +66,10 @@ li {
 }
 
 /* 메인페이지 */
+.link-buttons {
+  margin-bottom: 40px;
+}
+
 .link-button {
   display: inline-block;
   margin: 5px;
@@ -168,7 +172,7 @@ td {
 
 .machine-cells {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 
@@ -177,7 +181,7 @@ td {
   flex-direction: column;
   width: 150px;
   height: 200px;
-  margin: 15px;
+  margin: 10px;
   border: 3px solid white;
   background-color:rgb(10, 10, 10);
   text-align: center;
@@ -201,4 +205,27 @@ td {
 
 .cell-center:hover{
   background-color: rgb(30,30,30);
+}
+
+/* 메뉴얼페이지 */
+.manuel-page{
+  color: rgb(220, 220, 220);
+  margin: 20px;
+}
+.manuel-page h1{
+  margin: 10px 0 50px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.manuel-page ol li{
+  margin: 50px 0;
+  font-size: 22px;
+}
+
+.manuel-page ol li ul li{
+  margin: 10px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.1em;
 }
