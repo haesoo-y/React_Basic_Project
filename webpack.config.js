@@ -4,7 +4,7 @@ const RefreshWebpackPlugins = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
     name: 'webpack-setting',
-    mode: 'development',
+    mode: 'production',
     devtool: 'eval',
     resolve: {
         extensions: ['.js', '.jsx']

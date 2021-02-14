@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --env development",
+    "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,7 +17,8 @@
   "bugs": {
     "url": "https://github.com/haesoo9410/React_Basic_Project/issues"
   },
-  "homepage": "https://github.com/haesoo9410/React_Basic_Project#readme",
+  
+  "homepage": "https://harryproject03.netlify.app",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
