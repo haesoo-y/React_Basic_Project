@@ -1,5 +1,4 @@
 const path = require('path');
-const RefreshWebpackPlugins = require('@pmmmwh/react-refresh-webpack-plugin');
 
 
 module.exports = {
@@ -30,13 +29,12 @@ module.exports = {
                 ],
                 plugins: [
                     '@babel/plugin-proposal-class-properties',
-                    'react-refresh/babel',
                 ]
             }
         }],
     },
     plugins:[
-        new RefreshWebpackPlugins()
+        
     ],
 
     output: {

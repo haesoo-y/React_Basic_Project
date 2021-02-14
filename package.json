@@ -18,7 +18,7 @@
     "url": "https://github.com/haesoo9410/React_Basic_Project/issues"
   },
   
-  "homepage": "https://harryproject03.netlify.app",
+  "homepage": "https://harryproject03.netlify.app/",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
