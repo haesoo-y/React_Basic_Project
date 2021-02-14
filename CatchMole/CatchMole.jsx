@@ -4,9 +4,9 @@ import Form from './Form';
 
 const getSize = (level) => {
   switch (level){
-    case 'Easy' : return 3;
-    case 'Normal' : return 5;
-    case 'Hard' : return 10;
+    case 'Easy' : return 2;
+    case 'Normal' : return 3;
+    case 'Hard' : return 5;
   };
 }
 const getTable = (level) => {
@@ -41,6 +41,7 @@ export const CLOSE_CELL = 'CLOSE_CELL';
 export const RUN_TIMER = 'RUN_TIMER';
 export const CHANGE_LEVEL = 'CHANGE_LEVEL';
 
+
 // ***** 리듀서로 이벤트 처리 *****
 const reducer = (state, action) => {
   switch (action.type) {
@@ -48,12 +49,14 @@ const reducer = (state, action) => {
       console.log('START_GAME level : ' + state.level)
       return {
         ...state,
-        tableData: getTable(state.level),
+        level: action.level,
+        tableData: getTable(action.level),
         halted: false,
         timer:0,
         catchCount:1,
         result:'',
       }
+    
     case RANDOM_CHANGE :{
       const tableData = [...state.tableData];
       tableData[action.row] = [...state.tableData[action.row]];
@@ -81,7 +84,7 @@ const reducer = (state, action) => {
       let result = '';
       if (state.catchCount === allCount){
         halted = true;
-        result = `성공 : ${state.timer}초 `;
+        result = `SUCCESS TIME : ${state.timer} `;
       }
 
       return {
@@ -123,8 +126,9 @@ const initialState = {
 const CatchMole = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { tableData, level, timer, result, halted, catchCount } = state;
+  
   const value = useMemo(() => (
-    {tableData, halted, dispatch }
+    {tableData, halted, dispatch, level }
   ), [tableData])
 
   // ***** 타이머 *****
@@ -142,12 +146,15 @@ const CatchMole = () => {
 
 // ***** 렌더링 작업 *****
   return (
-    <TableContext.Provider value={value}>
-      <Form />
-      <Table />
-      {halted === true ? null : <div>{`⏰ ${timer} 초`}</div>}
-      {result && <div>{`🎊 ${result} 🎊`}</div>}
-    </TableContext.Provider>
+    <div className="catchmole">
+      <TableContext.Provider value={value}>
+        <Table />
+        <Form />
+        {halted === true ? null : <div>{`TIME : ${timer}`}</div>}
+        {result && <div>{result}</div>}
+      </TableContext.Provider>
+    </div>
+    
   );
 };
 

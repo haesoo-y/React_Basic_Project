@@ -64,7 +64,7 @@ const LuckySeven = () => {
         <SlotMachine halted={halted} getCount={getCount}/>
         <SlotMachine halted={halted} getCount={getCount}/>
       </div>     
-      <button className="machine-button" onClick={onClickRedo}>START</button>
+      <button className="start-button" onClick={onClickRedo}>START</button>
       {result && <div>SUCCESS <br/>{result}</div>}
     </div>
   );
