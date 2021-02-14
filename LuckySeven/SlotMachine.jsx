@@ -9,7 +9,7 @@ const getTopBottomCode = (tbcode) => {
   }
 }
 
-const SlotMachine = memo( ({halted, getCount}) => {
+const SlotMachine = memo( ({halted, getCount, result}) => {
   const [code, setCode] = useState(getCode());
   const [move, setMove] = useState(false)
   const timeInterval = useRef();
@@ -30,14 +30,14 @@ const SlotMachine = memo( ({halted, getCount}) => {
   },[code,halted])
 
   useEffect( ()=> {
-    if(halted === true){
+    if(result && halted === true){
       timeCode.current = setTimeout(()=>{setCode(getCode())},3000);
       return;
     }
     return () => {
       clearTimeout(timeCode.current);
     }
-  },[halted])
+  },[halted,result])
 
   const onClickMachine = ()=> {
     if(move){
