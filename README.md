@@ -1,5 +1,10 @@
 # Reaction Speed Test Game
 
+### 목적
+- 반응속도를 테스트할 수 있는 2개의 게임 구현
+- 리액트를 공부하면서 배운 다양한 기능을 실습
+
+
 ### 미리보기
 - Desktop size
 
@@ -8,6 +13,8 @@
 - Mobile size
 
 ![mobile](https://user-images.githubusercontent.com/71266602/107910794-7433cd80-6f9e-11eb-891c-a2a3d255c8d7.gif)
+
+- [바로가기](https://harryproject03.netlify.app/#/)
 
 ### 상세내용
 
