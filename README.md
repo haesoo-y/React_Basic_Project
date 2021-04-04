@@ -57,7 +57,7 @@
 ### 상세내용 (CatchMole)
 
 1. 난이도에 따라 다른 표가 생성되도록함.
-    - Easy : 2*2 , Normal : 3*3 , Hard : 5*5
+    - Easy : 2 * 2 , Normal : 3 * 3 , Hard : 5 * 5
     - Form컴포넌트에서 난이도를 조정하는 버튼을 만들고 `dispatch`로 level 데이터를 넘겨줌
 2. 자식컴포넌트의 관리를 수월하게 하기 위해서 `ContextAPI`를 사용
     - CatchMole > Form
